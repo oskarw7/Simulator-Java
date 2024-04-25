@@ -1,0 +1,24 @@
+### ABSTRACTION OUTLINE ###
+    1. Main launches App
+    2. App contains Visualiser and file manager:
+        - adds button, creates GUI and manages interaction with it
+    3. Visualiser contains World:
+        - manages input and prints organisms
+    4. World is an abstract:
+        - rectangular
+        - hexagonal
+        - contains event listener and organisms
+    5. Organisms similarly to C++ project
+    6. Event listener
+    7. File manager
+
+### PACKAGES ###
+    1. GUI: App and Visualiser
+    2. Simulation:
+        - World
+        - Organisms (nested)
+    3. Utils:
+        - Event listener
+        - File manager
+    4. Main stays alone
+    5. Saves (txt files)
