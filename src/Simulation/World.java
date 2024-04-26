@@ -3,13 +3,19 @@ package Simulation;
 import java.util.Objects;
 import java.util.Vector;
 
-import Simulation.Organisms.Abstract.Organism;
+import Simulation.Organisms.Abstract.*;
+import Simulation.Organisms.Animals.*;
+import Utils.Randomiser;
 
 public abstract class World {
     public World(int width, int height, String type){
         this.width = width;
         this.height = height;
+        this.isEnd = false;
         this.currentType = type;
+        this.human = null;
+        this.organisms = new Vector<>();
+        // event listener
     }
 
     public static World getWorld(){
@@ -37,6 +43,10 @@ public abstract class World {
 
     public abstract int getMove(int direction, int axis);
 
+    public final Human getHuman(){
+        return human;
+    }
+
     public final Organism getOrganism(int x, int y){
         for(Organism o : organisms){
             if(o.getX()==x && o.getY()==y)
@@ -49,14 +59,69 @@ public abstract class World {
         this.organisms.add(organism);
     }
 
-    private static World world = null;
+    public final void setEnd(){
+        // event end
+        isEnd = true;
+    }
+
+    public final boolean endSimulation(){
+        return isEnd;
+    }
+
+    public final void newTurn(){
+        // clear events
+        sortTurn();
+
+        for(Organism o : organisms){
+            if(o instanceof Animal && o.getDescendant()) // sprawdzic czy nie potrzeba castowac
+               o.setDescendant();
+        }
+
+        for(int i=0; i<organisms.size(); i++){
+            if(organisms.get(i)!=null && organisms.get(i).getAge()>=0){
+                if(organisms.get(i) instanceof Animal && organisms.get(i).getDescendant())
+                    continue;
+                organisms.get(i).action();
+            }
+        }
+    }
+
+    protected final void sortTurn(){
+        int size = organisms.size();
+        for(int i=0; i<size; i++){
+            if(organisms.get(i)==null || organisms.get(i).getAge()<0){
+                organisms.remove(i);
+                i--;
+                size--;
+            }
+        }
+        organisms.sort((Organism o1, Organism o2) -> {
+            if(o1.getInitiative() == o2.getInitiative()) {
+                return o2.getAge() - o1.getAge();
+            }
+            else {
+                return o2.getInitiative() - o1.getInitiative();
+            }
+        });
+    }
+
+    protected final void generateWorld(){
+        this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
+        addOrganism(human);
+
+        //zwierzeta
+    }
+
+
     //EventListener
+    protected static World world = null;
     protected int width;
     protected int height;
-    private String currentType;
     protected boolean isEnd;
 
-    Vector<Organism> organisms;
-    //human
+    protected Vector<Organism> organisms;
+    protected Human human;
+
+    private String currentType;
 
 }

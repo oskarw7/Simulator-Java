@@ -94,6 +94,8 @@ public abstract class Organism {
 
     public void setDescendant(){};
 
+    protected abstract Organism descendant();
+
     protected World world;
     protected Point position;
     protected Point previousPosition;

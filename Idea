@@ -22,3 +22,8 @@
         - File manager
     4. Main stays alone
     5. Saves (txt files)
+
+### RETHINK ###
+    App extends JFrame. Containts map (JPanel), file manager and gui elements.
+    Visualiser extends JPanel and implements KeyListener. Contains world and manages movement input.
+    Consider renaming it to WorldGUI.
