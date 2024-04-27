@@ -1,7 +1,7 @@
 ### ABSTRACTION OUTLINE ###
     1. Main launches App
     2. App contains Visualiser and file manager:
-        - adds button, creates GUI and manages interaction with it
+        - adds button, creates App and manages interaction with it
     3. Visualiser contains World:
         - manages input and prints organisms
     4. World is an abstract:
@@ -13,7 +13,7 @@
     7. File manager
 
 ### PACKAGES ###
-    1. GUI: App and Visualiser
+    1. App: App and Visualiser
     2. Simulation:
         - World
         - Organisms (nested)

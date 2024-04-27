@@ -1,10 +1,12 @@
 package Simulation.Organisms.Abstract;
 
+import java.awt.Color;
+
 import Utils.Randomiser;
 
 public abstract class Animal extends Organism{
-    public Animal(int x, int y, int strength, int initiative, String name){
-        super(x, y, strength, initiative, name);
+    public Animal(int x, int y, int strength, int initiative, String name, Color color){
+        super(x, y, strength, initiative, name, color);
     }
 
     @Override

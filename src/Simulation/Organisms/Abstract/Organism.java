@@ -1,14 +1,17 @@
 package Simulation.Organisms.Abstract;
 
+import java.awt.Color;
+
 import Simulation.World;
 import Utils.Point;
 
 public abstract class Organism {
-    public Organism(int x, int y, int strength, int initiative, String name){
+    public Organism(int x, int y, int strength, int initiative, String name, Color color){
         this.position = new Point(x, y);
         this.strength = strength;
         this.initiative = initiative;
         this.name = name;
+        this.color = color;
         this.age = 0;
         this.isDescendant = false;
         this.world = World.getWorld();
@@ -88,6 +91,10 @@ public abstract class Organism {
         return name;
     }
 
+    public final Color getColor(){
+        return color;
+    }
+
     public boolean getDescendant(){
         return false;
     }
@@ -104,4 +111,5 @@ public abstract class Organism {
     protected int initiative;
     protected String name;
     protected boolean isDescendant;
+    protected Color color;
 }

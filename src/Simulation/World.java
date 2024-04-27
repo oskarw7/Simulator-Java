@@ -1,5 +1,6 @@
 package Simulation;
 
+import java.awt.Graphics;
 import java.util.Objects;
 import java.util.Vector;
 
@@ -23,8 +24,10 @@ public abstract class World {
     }
 
     public static World getWorld(int width, int height, String type){
-        if(Objects.equals(type, "Rectangular"))
+        if(Objects.equals(type, "Rectangular")) {
             world = new RectangularWorld(width, height);
+            world.generateWorld();
+        }
         else if(Objects.equals(type, "Hexagonal"))
             world = null; //TODO: warunek dla heksagonalnego
         else
@@ -106,7 +109,8 @@ public abstract class World {
     }
 
     protected final void generateWorld(){
-        this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
+        //this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
+        this.human = new Human(width-1, height-1);
         addOrganism(human);
 
         //zwierzeta

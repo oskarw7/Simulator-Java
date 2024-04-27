@@ -1,12 +1,14 @@
 package Simulation.Organisms.Animals;
 
+import java.awt.Color;
+
 import Simulation.Organisms.Abstract.Animal;
 import Simulation.Organisms.Abstract.Organism;
 import Utils.Point;
 
 public class Human extends Animal {
     public Human(int x, int y){
-        super(x, y, 5, 4, "Human");
+        super(x, y, 5, 4, "Human", Color.white);
         this.direction = new Point(0, 0);
         this.timer = 0;
         this.isPowerActive = false;

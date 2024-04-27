@@ -1,0 +1,91 @@
+package App;
+
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import Simulation.Organisms.Abstract.Organism;
+import Simulation.World;
+
+public class WorldGUI extends JPanel implements KeyListener, MouseListener {
+    public WorldGUI(int guiWidth, int guiHeight){
+        this.guiWidth = guiWidth;
+        this.guiHeight = guiHeight;
+
+        this.setBounds(0,0,guiWidth,guiHeight);
+        this.setBackground(Color.black);
+        addKeyListener(this);
+        //this.setLayout(null);
+        //setVisible(true);
+
+        this.world = World.getWorld();
+    }
+
+    public void newTurn(){
+        world.newTurn();
+        paint(this.getGraphics());
+    }
+
+    public void paint(Graphics g){
+        int fieldSize = guiWidth/world.getWidth();
+        g.setColor(Color.black);
+        g.fillRect(0,0, guiWidth, guiHeight);
+        for(int i=0; i<world.getHeight(); i++){
+            for(int j=0; j<world.getWidth(); j++){
+                Organism o = world.getOrganism(j, i);
+                if(o!=null){
+                    g.setColor(o.getColor());
+                    g.fillRect(j*fieldSize, i*fieldSize, fieldSize, fieldSize);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    private World world;
+    private int guiWidth;
+    private int guiHeight;
+}
