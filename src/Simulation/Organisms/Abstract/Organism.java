@@ -8,6 +8,7 @@ import Utils.Point;
 public abstract class Organism {
     public Organism(int x, int y, int strength, int initiative, String name, Color color){
         this.position = new Point(x, y);
+        this.previousPosition = new Point(x, y);
         this.strength = strength;
         this.initiative = initiative;
         this.name = name;
@@ -21,7 +22,7 @@ public abstract class Organism {
     abstract public void collision(Organism attacker);
 
     public final boolean move(int x, int y){
-        if(x<0 || x>=world.getWidth() || y>0 || y>=world.getHeight())
+        if(x<0 || x>=world.getWidth() || y<0 || y>=world.getHeight())
             return false;
         Organism o = world.getOrganism(x, y);
 

@@ -24,8 +24,9 @@ public class Human extends Animal {
         if(isPowerActive){
             // event power activated
         }
-        if(!move(getX()+direction.getX(), getY()+ direction.getY()))
+        if(!move(getX()+direction.getX(), getY()+direction.getY()))
             move(getX(), getY());
+        setDirection(0,0);
     }
 
     @Override

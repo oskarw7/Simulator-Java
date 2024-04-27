@@ -1,9 +1,5 @@
 package Simulation;
 
-import java.awt.*;
-
-import Simulation.Organisms.Abstract.Organism;
-
 public class RectangularWorld extends World{
     public RectangularWorld(int width, int height){
         super(width, height, "Rectangular");

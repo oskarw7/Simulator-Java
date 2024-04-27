@@ -22,7 +22,7 @@ public abstract class Animal extends Organism{
     @Override
     public void collision(Organism attacker){
         if(this.getClass().equals(attacker.getClass())){
-            //multiply
+            multiply(attacker);
         }
         else {
             if(this.getStrength() <= attacker.getStrength()){

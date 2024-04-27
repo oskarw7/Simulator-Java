@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Simulation.Organisms.Abstract.Organism;
+import Simulation.Organisms.Animals.Human;
 import Simulation.World;
 
 public class WorldGUI extends JPanel implements KeyListener, MouseListener {
@@ -19,8 +20,7 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
         this.setBounds(0,0,guiWidth,guiHeight);
         this.setBackground(Color.black);
         addKeyListener(this);
-        //this.setLayout(null);
-        //setVisible(true);
+        setFocusable(true);
 
         this.world = World.getWorld();
     }
@@ -28,8 +28,10 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
     public void newTurn(){
         world.newTurn();
         paint(this.getGraphics());
+        requestFocus();
     }
 
+    @Override
     public void paint(Graphics g){
         int fieldSize = guiWidth/world.getWidth();
         g.setColor(Color.black);
@@ -52,7 +54,26 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        Human human = world.getHuman();
 
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_UP:
+                human.setDirection(0,-1);
+                break;
+            case KeyEvent.VK_DOWN:
+                human.setDirection(0, 1);
+                break;
+            case KeyEvent.VK_LEFT:
+                human.setDirection(-1,0);
+                break;
+            case KeyEvent.VK_RIGHT:
+                human.setDirection(1,0);
+                break;
+            default:
+                human.setDirection(0,0);
+                break;
+                // obsluga umiejetnosci
+        }
     }
 
     @Override

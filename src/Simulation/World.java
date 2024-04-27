@@ -91,6 +91,8 @@ public abstract class World {
 
     protected final void sortTurn(){
         int size = organisms.size();
+        if(size==1)
+            return;
         for(int i=0; i<size; i++){
             if(organisms.get(i)==null || organisms.get(i).getAge()<0){
                 organisms.remove(i);
@@ -109,11 +111,19 @@ public abstract class World {
     }
 
     protected final void generateWorld(){
-        //this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
-        this.human = new Human(width-1, height-1);
+        this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
         addOrganism(human);
 
-        //zwierzeta
+        addOrganism(new Wolf(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Wolf(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Sheep(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Sheep(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Fox(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Fox(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Turtle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Turtle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Antelope(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Antelope(Randomiser.randomInt(width), Randomiser.randomInt(height)));
     }
 
 
