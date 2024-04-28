@@ -1,7 +1,6 @@
 package App;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -28,6 +27,7 @@ public class App extends JFrame {
         gui.paint(gui.getGraphics());
 
         addButtons(worldHeight);
+        addEventArea(worldWidth);
 
         revalidate();
         repaint();
@@ -59,6 +59,13 @@ public class App extends JFrame {
         });
     }
 
+    private void addEventArea(int worldWidth){
+        eventArea = new JTextArea();
+        eventArea.setBounds(fieldSize*worldWidth+10, 0, windowWidth-fieldSize*worldWidth-10, windowHeight);
+        //JScrollPane scroll = new JScrollPane(eventArea);
+        this.getContentPane().add(eventArea);
+    }
+
 
     private final int windowWidth = 1470;
     private final int windowHeight = 840;
@@ -66,4 +73,5 @@ public class App extends JFrame {
     private World world;
     private WorldGUI gui;
     private JButton turnButton;
+    private JTextArea eventArea;
 }

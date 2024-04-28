@@ -26,11 +26,11 @@ public abstract class Animal extends Organism{
         }
         else {
             if(this.getStrength() <= attacker.getStrength()){
-                //add event kill
+                world.getEventListener().addEvent(attacker, this, "kill");
                 this.kill();
             }
             else {
-                // add event kill
+                world.getEventListener().addEvent(this, attacker, "kill");
                 attacker.kill();
             }
         }
@@ -59,11 +59,11 @@ public abstract class Animal extends Organism{
                 iterations++;
             }
             if(iterations==4){
-                //add event multiplication failed
+                world.getEventListener().addEvent(this, partner, "multiplication failed");
                 desc.kill();
             }
             else{
-                //add event multiplied
+                world.getEventListener().addEvent(this, partner, "multiplication");
             }
         }
     }

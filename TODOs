@@ -1,31 +1,11 @@
 Warunek dla heksagonalnej planszy getWorld
 
-Event w metodzie kill
-
-Metoda draw dla organizmów
-
 Sprawdzić działanie random i ewentualnie przenieść do Main/App
-
-Wywołanie eventu kill w collision w Animal i Human
-
-Wywolanie eventu w multiplication w Animal
-
-Wywołanie eventu power activated
-
-Wywołanie eventu push back w collision w Human
 
 World set end (wywolanie w Human kill)
 
 Dodać stringify()
 
-Event listener w konstruktorze świata
-
 Event end w set end w World
 
 Hermetyzacja protected -> private w World
-
-Umiejętność
-
-Event turtle push back i kill
-
-Event escape i kill w Antelope

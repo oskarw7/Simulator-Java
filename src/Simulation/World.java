@@ -6,7 +6,9 @@ import java.util.Vector;
 
 import Simulation.Organisms.Abstract.*;
 import Simulation.Organisms.Animals.*;
+import Simulation.Organisms.Plants.*;
 import Utils.Randomiser;
+import Utils.EventListener;
 
 public abstract class World {
     public World(int width, int height, String type){
@@ -16,7 +18,7 @@ public abstract class World {
         this.currentType = type;
         this.human = null;
         this.organisms = new Vector<>();
-        // event listener
+        this.eventListener = new EventListener();
     }
 
     public static World getWorld(){
@@ -45,6 +47,10 @@ public abstract class World {
     }
 
     public abstract int getMove(int direction, int axis);
+
+    public EventListener getEventListener(){
+        return eventListener;
+    }
 
     public final Human getHuman(){
         return human;
@@ -124,15 +130,24 @@ public abstract class World {
         addOrganism(new Turtle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Antelope(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Antelope(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Grass(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Grass(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new SowThistle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new SowThistle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Guarana(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new Guarana(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new DeadlyNightshade(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+        addOrganism(new SosnowskysHogweed(Randomiser.randomInt(width), Randomiser.randomInt(height)));
+
     }
 
 
-    //EventListener
     protected static World world = null;
     protected int width;
     protected int height;
     protected boolean isEnd;
 
+    protected EventListener eventListener;
     protected Vector<Organism> organisms;
     protected Human human;
 

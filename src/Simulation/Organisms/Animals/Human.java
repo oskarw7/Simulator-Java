@@ -22,7 +22,7 @@ public class Human extends Animal {
         if(timer>-5)
             timer--;
         if(isPowerActive){
-            // event power activated
+            world.getEventListener().addEvent(this, null, "power");
         }
         if(!move(getX()+direction.getX(), getY()+direction.getY()))
             move(getX(), getY());
@@ -33,17 +33,17 @@ public class Human extends Animal {
     public void collision(Organism attacker){
         if(isPowerActive){
             if(attacker instanceof Animal){
-                // event push back
+                world.getEventListener().addEvent(this, attacker, "push");
                 attacker.pushBack();
             }
         }
         else{
             if(this.getStrength() <= attacker.getStrength()){
-                // event kill
+                world.getEventListener().addEvent(attacker, this, "kill");
                 this.kill();
             }
             else {
-                // event kill
+                world.getEventListener().addEvent(this, attacker, "kill");
                 attacker.kill();
             }
         }

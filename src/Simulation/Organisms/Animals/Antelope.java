@@ -47,20 +47,20 @@ public class Antelope extends Animal {
                         iterations++;
                     }
                     if(iterations==4){
-                        // event kill
+                        world.getEventListener().addEvent(attacker, this, "kill");
                         this.kill();
                     }
                     else{
-                        // event escape
+                        world.getEventListener().addEvent(this, attacker, "escaped from");
                     }
                 }
                 else{
-                    //event kill
+                    world.getEventListener().addEvent(attacker, this, "kill");
                     this.kill();
                 }
             }
             else {
-                // event kill
+                world.getEventListener().addEvent(this, attacker, "kill");
                 attacker.kill();
             }
         }

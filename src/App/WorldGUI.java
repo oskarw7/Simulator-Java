@@ -69,10 +69,13 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
             case KeyEvent.VK_RIGHT:
                 human.setDirection(1,0);
                 break;
+            case KeyEvent.VK_SPACE:
+                if(human.isPowerReady())
+                    human.activatePower();
+                break;
             default:
                 human.setDirection(0,0);
                 break;
-                // obsluga umiejetnosci
         }
     }
 

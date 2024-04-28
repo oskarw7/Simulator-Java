@@ -37,7 +37,7 @@ public abstract class Organism {
 
     public final boolean moveOnEmpty(int x, int y){
         Organism o = world.getOrganism(x, y);
-        if(o!=null || x<0 || x>=world.getWidth() || y>0 || y>=world.getHeight())
+        if(o!=null || x<0 || x>=world.getWidth() || y<0 || y>=world.getHeight())
             return false;
 
         this.previousPosition.assign(this.position);
@@ -49,7 +49,7 @@ public abstract class Organism {
     public void kill(){
         this.age = -100;
         this.position.assign(-100,-100);
-        //add event: die
+        world.getEventListener().addEvent(this, null, "die");
     }
 
     public final void pushBack(){

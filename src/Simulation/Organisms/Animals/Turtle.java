@@ -8,7 +8,7 @@ import Utils.Randomiser;
 
 public class Turtle extends Animal {
     public Turtle(int x, int y){
-        super(x, y, 2, 1, "Turtle", Color.green);
+        super(x, y, 2, 1, "Turtle", Color.decode("#215411"));
     }
 
     @Override
@@ -33,16 +33,16 @@ public class Turtle extends Animal {
         }
         else{
             if(attacker instanceof Animal && attacker.getStrength()<5){
-                // event tpush
+                world.getEventListener().addEvent(this, attacker, "tpush");
                 attacker.pushBack();
             }
             else {
                 if(this.getStrength() <= attacker.getStrength()){
-                    // event kill
+                    world.getEventListener().addEvent(attacker, this, "kill");
                     this.kill();
                 }
                 else {
-                    // event kill
+                    world.getEventListener().addEvent(this, attacker, "kill");
                     attacker.kill();
                 }
             }
