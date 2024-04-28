@@ -39,10 +39,10 @@ public class EventListener {
             events.add(o1.getName() + " is using Alzur's Shields");
         }
         else if(Objects.equals(event, "push")){
-            events.add(o1.getName() + " pushed back" + o2.getName() + " using Alzur's Shields");
+            events.add(o1.getName() + " pushed back " + o2.getName() + " using Alzur's Shields");
         }
         else if(Objects.equals(event, "tpush")){
-            events.add(o1.getName() + " pushed back" + o2.getName() + " using his shell");
+            events.add(o1.getName() + " pushed back " + o2.getName() + " using his shell");
         }
         else if(o1==null && o2==null){
             events.add(event);
@@ -62,6 +62,14 @@ public class EventListener {
 
     public ArrayList<String> getEvents(){
         return events;
+    }
+
+    public String stringify() {
+        String s = ".";
+        for (String event : events) {
+            s += event + ".";
+        }
+        return s;
     }
 
     private ArrayList<String> events;

@@ -80,6 +80,14 @@ public class Human extends Animal {
         return null;
     }
 
+    @Override
+    public String stringify(){
+        String s = super.stringify();
+        s += String.valueOf(this.isPowerActive ? 1 : 0) + '.';
+        s += String.valueOf(this.timer) + '.';
+        return s;
+    }
+
     private Point direction;
     private int timer;
     private boolean isPowerActive;

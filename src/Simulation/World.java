@@ -77,6 +77,17 @@ public abstract class World {
         return isEnd;
     }
 
+    public String stringify(){
+        String s = "";
+        s += String.valueOf(width) + '.' + String.valueOf(height) + '.' + currentType + '.' + '\n';
+        s += eventListener.stringify() + '\n';
+        for(Organism o : organisms){
+            s += o.stringify();
+            s+= '\n';
+        }
+        return s;
+    }
+
     public final void newTurn(){
         // clear events
         sortTurn();

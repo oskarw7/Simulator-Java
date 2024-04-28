@@ -52,6 +52,15 @@ public abstract class Organism {
         world.getEventListener().addEvent(this, null, "die");
     }
 
+    public String stringify(){
+        String s="";
+        s += '.' + this.name + '.';
+        s += String.valueOf(this.position.getX()) + '.' + String.valueOf(this.position.getY()) + '.';
+        s += String.valueOf(this.strength) + '.';
+        s += String.valueOf(this.age) + '.';
+        return s;
+    }
+
     public final void pushBack(){
         position.assign(previousPosition);
     }
