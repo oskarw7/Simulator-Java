@@ -1,13 +1,16 @@
 package App;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import Simulation.World;
-
+import Utils.EventListener;
 
 public class App extends JFrame {
     public App(int worldWidth, int worldHeight){
@@ -54,16 +57,30 @@ public class App extends JFrame {
         turnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                world.getEventListener().clearEvents();
                 gui.newTurn();
+                showEvents();
             }
         });
     }
 
     private void addEventArea(int worldWidth){
         eventArea = new JTextArea();
+        eventArea.setEditable(false);
+        eventArea.setLineWrap(true);
+        eventArea.setWrapStyleWord(true);
         eventArea.setBounds(fieldSize*worldWidth+10, 0, windowWidth-fieldSize*worldWidth-10, windowHeight);
-        //JScrollPane scroll = new JScrollPane(eventArea);
         this.getContentPane().add(eventArea);
+    }
+
+    private void showEvents(){
+        eventArea.setText("");
+        EventListener eventListener = world.getEventListener();
+        ArrayList<String> events = eventListener.getEvents();
+        for(String event : events){
+            eventArea.append("  " + event + "\n");
+        }
+        //eventArea.print(this.getGraphics());
     }
 
 

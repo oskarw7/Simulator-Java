@@ -18,7 +18,7 @@ public class EventListener {
             events.add(o1.getName() + " failed to multiply, there is no space around");
         }
         else if(Objects.equals(event, "spread")){
-            events.add(o1.getName() + "spreads on position (" + String.valueOf(o1.getX()) + "," + String.valueOf(o1.getY()) + ")");
+            events.add(o1.getName() + " spreads on position (" + String.valueOf(o1.getX()) + "," + String.valueOf(o1.getY()) + ")");
         }
         else if(Objects.equals(event, "spread failed")){
             events.add(o1.getName() + " failed to spread, there is no space around");

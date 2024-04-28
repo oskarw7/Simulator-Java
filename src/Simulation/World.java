@@ -125,7 +125,6 @@ public abstract class World {
         addOrganism(new Sheep(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Sheep(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Fox(Randomiser.randomInt(width), Randomiser.randomInt(height)));
-        addOrganism(new Fox(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Turtle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Turtle(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new Antelope(Randomiser.randomInt(width), Randomiser.randomInt(height)));
