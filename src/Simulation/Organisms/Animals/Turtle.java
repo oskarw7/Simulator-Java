@@ -50,7 +50,7 @@ public class Turtle extends Animal {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Turtle(getX(), getY());
     }
 }

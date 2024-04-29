@@ -67,7 +67,7 @@ public class Antelope extends Animal {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Antelope(getX(), getY());
     }
 }

@@ -26,7 +26,7 @@ public class Fox extends Animal {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Fox(getX(), getY());
     }
 

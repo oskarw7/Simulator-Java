@@ -27,7 +27,7 @@ public class Guarana extends Plant {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Guarana(getX(), getY());
     }
 }

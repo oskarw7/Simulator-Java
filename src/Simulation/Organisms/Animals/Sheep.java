@@ -11,7 +11,7 @@ public class Sheep extends Animal {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Sheep(getX(), getY());
     }
 }

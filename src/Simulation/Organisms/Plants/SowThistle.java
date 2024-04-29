@@ -22,7 +22,7 @@ public class SowThistle extends Plant {
     }
 
     @Override
-    protected Organism descendant(){
+    public Organism descendant(){
         return new SowThistle(getX(), getY());
     }
 }

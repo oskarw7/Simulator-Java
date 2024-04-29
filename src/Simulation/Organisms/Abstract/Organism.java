@@ -115,7 +115,11 @@ public abstract class Organism {
         this.strength = strength;
     }
 
-    protected abstract Organism descendant();
+    public void setPosition(Point p){
+        this.position.assign(p);
+    }
+
+    public abstract Organism descendant();
 
     protected World world;
     protected Point position;

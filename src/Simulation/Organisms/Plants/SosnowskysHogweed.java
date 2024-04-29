@@ -21,7 +21,7 @@ public class SosnowskysHogweed extends Plant {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new SosnowskysHogweed(getX(), getY());
     }
 }

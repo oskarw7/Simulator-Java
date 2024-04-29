@@ -21,7 +21,7 @@ public class DeadlyNightshade extends Plant {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new DeadlyNightshade(getX(), getY());
     }
 }

@@ -11,7 +11,7 @@ public class Wolf extends Animal {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Wolf(getX(), getY());
     }
 }

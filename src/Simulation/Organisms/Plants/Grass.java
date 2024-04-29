@@ -11,7 +11,7 @@ public class Grass extends Plant {
     }
 
     @Override
-    protected Organism descendant() {
+    public Organism descendant() {
         return new Grass(getX(), getY());
     }
 }

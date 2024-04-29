@@ -76,7 +76,7 @@ public class Human extends Animal {
     }
 
     @Override
-    protected Organism descendant(){
+    public Organism descendant(){
         return null;
     }
 
