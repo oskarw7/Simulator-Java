@@ -8,6 +8,7 @@ import Simulation.Organisms.Abstract.Organism;
 public class EventListener {
     public EventListener(){
         this.events = new ArrayList<>();
+        this.info = "";
     }
 
     public void addEvent(Organism o1, Organism o2, String event){
@@ -60,12 +61,20 @@ public class EventListener {
         events.clear();
     }
 
+    public void clearInfo(){
+        info = "";
+    }
+
     public ArrayList<String> getEvents(){
         return events;
     }
 
+    public String getInfo(){
+        return info;
+    }
+
     public String stringify() {
-        String s = ".";
+        String s = "";
         for (String event : events) {
             s += event + ".";
         }

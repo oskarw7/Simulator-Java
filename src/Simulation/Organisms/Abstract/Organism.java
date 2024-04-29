@@ -54,7 +54,7 @@ public abstract class Organism {
 
     public String stringify(){
         String s="";
-        s += '.' + this.name + '.';
+        s += this.name + '.';
         s += String.valueOf(this.position.getX()) + '.' + String.valueOf(this.position.getY()) + '.';
         s += String.valueOf(this.strength) + '.';
         s += String.valueOf(this.age) + '.';
@@ -110,6 +110,10 @@ public abstract class Organism {
     }
 
     public void setDescendant(){};
+
+    public void setStrength(int strength){
+        this.strength = strength;
+    }
 
     protected abstract Organism descendant();
 

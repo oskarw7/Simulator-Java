@@ -1,0 +1,19 @@
+15.15.Rectangular.
+
+Fox.13.10.3.3.
+Wolf.3.5.9.3.
+Wolf.10.10.9.3.
+Human.8.1.5.3.0.-3.
+Sheep.13.9.4.3.
+Sheep.14.5.4.3.
+Antelope.9.9.4.3.
+Antelope.1.12.4.3.
+Turtle.1.1.2.3.
+Turtle.11.0.2.3.
+Grass.13.1.0.3.
+Grass.14.9.0.3.
+Sow Thistle.8.7.0.3.
+Guarana.9.10.0.3.
+Guarana.7.11.0.3.
+Deadly nightshade.6.7.99.3.
+Sosnowsky's Hogweed.14.12.10.3.

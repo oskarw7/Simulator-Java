@@ -38,6 +38,10 @@ public abstract class World {
         return world;
     }
 
+    public static void setWorld(World w){
+        world = w;
+    }
+
     public final int getWidth(){
         return width;
     }
@@ -54,6 +58,10 @@ public abstract class World {
 
     public final Human getHuman(){
         return human;
+    }
+
+    public final void setHuman(Human human){
+        this.human = human;
     }
 
     public final Organism getOrganism(int x, int y){
@@ -82,6 +90,8 @@ public abstract class World {
         s += String.valueOf(width) + '.' + String.valueOf(height) + '.' + currentType + '.' + '\n';
         s += eventListener.stringify() + '\n';
         for(Organism o : organisms){
+            if(o.getAge()<0)
+                continue;
             s += o.stringify();
             s+= '\n';
         }

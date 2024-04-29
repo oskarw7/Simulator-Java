@@ -46,7 +46,7 @@ public abstract class Animal extends Organism{
     }
 
     protected final void multiply(Organism partner){
-        if(partner!=this && this.getAge()>=7 && partner.getAge()>=7){
+        if(partner!=this && this.getAge()>=10 && partner.getAge()>=10){
             Organism desc = descendant();
             desc.setDescendant();
             world.addOrganism(desc);

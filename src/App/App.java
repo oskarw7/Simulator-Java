@@ -6,12 +6,14 @@ import javax.swing.JTextArea;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import Simulation.World;
 import Utils.EventListener;
@@ -84,6 +86,12 @@ public class App extends JFrame {
     private void showEvents(){
         eventArea.setText("");
         EventListener eventListener = world.getEventListener();
+        if(!Objects.equals(eventListener.getInfo(), "")) {
+            eventArea.append("  INFO:\n  " + eventListener.getInfo() + "\n");
+            eventListener.clearInfo();
+        }
+        if(!eventListener.getEvents().isEmpty())
+            eventArea.append("  EVENTS:\n");
         ArrayList<String> events = eventListener.getEvents();
         for(String event : events){
             eventArea.append("  " + event + "\n");
@@ -118,6 +126,39 @@ public class App extends JFrame {
                 }
             }
         });
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> saves = fileManager.getSavesList();
+                if(saves.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "No saves found.", "Load", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                String filename = JOptionPane.showInputDialog(null, "Enter filename:", "Load", JOptionPane.PLAIN_MESSAGE, null, saves.toArray(), saves.get(0)).toString();
+                if(filename!=null){
+                    setNewWorld(filename);
+                }
+            }
+        });
+    }
+
+    private void setNewWorld(String filename){
+        fileManager.loadWorld(filename);
+        world = World.getWorld();
+        countFieldSize(world.getHeight());
+        this.getContentPane().remove(turnButton);
+        this.getContentPane().remove(gui);
+        this.getContentPane().remove(eventArea);
+        this.setMinimumSize(new Dimension(fieldSize*world.getWidth(), fieldSize*world.getHeight()));
+        addButtons(world.getHeight());
+        addEventArea(world.getWidth());
+        initMenuBar();
+        this.gui = new WorldGUI(fieldSize*world.getWidth(), fieldSize*world.getHeight());
+        this.add(gui);
+        revalidate();
+        repaint();
+        gui.paint(gui.getGraphics());
+        showEvents();
     }
 
 

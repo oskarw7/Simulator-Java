@@ -9,3 +9,5 @@ Dodać stringify()
 Event end w set end w World
 
 Hermetyzacja protected -> private w World
+
+Ładowanie heksagonalnej planszy z pliku
