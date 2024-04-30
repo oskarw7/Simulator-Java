@@ -1,6 +1,5 @@
-package Simulation;
+package Simulation.World;
 
-import java.awt.Graphics;
 import java.util.Objects;
 import java.util.Vector;
 
@@ -14,7 +13,6 @@ public abstract class World {
     public World(int width, int height, String type){
         this.width = width;
         this.height = height;
-        this.isEnd = false;
         this.currentType = type;
         this.human = null;
         this.organisms = new Vector<>();
@@ -30,8 +28,10 @@ public abstract class World {
             world = new RectangularWorld(width, height);
             world.generateWorld();
         }
-        else if(Objects.equals(type, "Hexagonal"))
-            world = null; //TODO: warunek dla heksagonalnego
+        else if(Objects.equals(type, "Hexagonal")) {
+            world = new HexagonalWorld(width, height);
+            world.generateWorld();
+        }
         else
             world = null;
 
@@ -42,12 +42,27 @@ public abstract class World {
         world = w;
     }
 
+    public final void toggleWorld(String type){
+        if(Objects.equals(type, "Rectangular")) {
+            world = new RectangularWorld(width, height);
+            world.generateWorld();
+        }
+        else if(Objects.equals(type, "Hexagonal")) {
+            world = new HexagonalWorld(width, height);
+            world.generateWorld();
+        }
+    }
+
     public final int getWidth(){
         return width;
     }
 
     public final int getHeight(){
         return height;
+    }
+
+    public final String getType(){
+        return currentType;
     }
 
     public abstract int getMove(int direction, int axis);
@@ -74,15 +89,6 @@ public abstract class World {
 
     public final void addOrganism(Organism organism){
         this.organisms.add(organism);
-    }
-
-    public final void setEnd(){
-        // event end
-        isEnd = true;
-    }
-
-    public final boolean endSimulation(){
-        return isEnd;
     }
 
     public String stringify(){
@@ -165,7 +171,6 @@ public abstract class World {
     protected static World world = null;
     protected int width;
     protected int height;
-    protected boolean isEnd;
 
     protected EventListener eventListener;
     protected Vector<Organism> organisms;

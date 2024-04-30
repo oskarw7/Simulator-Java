@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import Simulation.Organisms.Abstract.Organism;
 import Simulation.Organisms.Animals.*;
 import Simulation.Organisms.Plants.*;
-import Simulation.RectangularWorld;
-import Simulation.World;
+import Simulation.World.RectangularWorld;
+import Simulation.World.World;
 
 
 public class FileManager {

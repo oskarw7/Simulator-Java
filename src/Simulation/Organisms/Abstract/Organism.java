@@ -2,7 +2,7 @@ package Simulation.Organisms.Abstract;
 
 import java.awt.Color;
 
-import Simulation.World;
+import Simulation.World.World;
 import Utils.Point;
 
 public abstract class Organism {

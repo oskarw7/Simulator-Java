@@ -1,6 +1,6 @@
-package Simulation;
+package Simulation.World;
 
-public class RectangularWorld extends World{
+public class RectangularWorld extends World {
     public RectangularWorld(int width, int height){
         super(width, height, "Rectangular");
     }

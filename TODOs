@@ -4,10 +4,10 @@ Sprawdzić działanie random i ewentualnie przenieść do Main/App
 
 World set end (wywolanie w Human kill)
 
-Dodać stringify()
-
 Event end w set end w World
 
 Hermetyzacja protected -> private w World
 
 Ładowanie heksagonalnej planszy z pliku
+
+Odkomentować Launcher

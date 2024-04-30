@@ -6,11 +6,13 @@ import javax.swing.JMenuItem;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.*;
+import java.util.Objects;
 
 import Simulation.Organisms.Abstract.Organism;
 import Simulation.Organisms.Animals.*;
 import Simulation.Organisms.Plants.*;
-import Simulation.World;
+import Simulation.World.HexagonalWorld;
+import Simulation.World.World;
 import Utils.Point;
 
 public class WorldGUI extends JPanel implements KeyListener, MouseListener {
@@ -40,15 +42,24 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
         int fieldSize = guiWidth/world.getWidth();
         g.setColor(Color.black);
         g.fillRect(0,0, guiWidth, guiHeight);
-        for(int i=0; i<world.getHeight(); i++){
-            for(int j=0; j<world.getWidth(); j++){
+
+        for (int i = 0; i < world.getHeight(); i++) {
+            for (int j = 0; j < world.getWidth(); j++) {
                 Organism o = world.getOrganism(j, i);
-                if(o!=null){
+                if (o != null) {
                     g.setColor(o.getColor());
-                    g.fillRect(j*fieldSize, i*fieldSize, fieldSize, fieldSize);
+                    if(Objects.equals(world.getType(), "Rectangular")) {
+                        g.fillRect(j * fieldSize, i * fieldSize, fieldSize, fieldSize);
+                    }
+                    else if(Objects.equals(world.getType(), "Hexagonal")){
+                        HexagonalWorld hexWorld = (HexagonalWorld) world;
+                        int[][] coords = hexWorld.coordsToHex(i, j, fieldSize);
+                        g.fillPolygon(coords[0], coords[1], 6);
+                    }
                 }
             }
         }
+
     }
 
     @Override

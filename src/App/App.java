@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import Simulation.World;
+import Simulation.World.World;
 import Utils.EventListener;
 import Utils.FileManager;
 
@@ -136,14 +136,28 @@ public class App extends JFrame {
                 }
                 String filename = JOptionPane.showInputDialog(null, "Enter filename:", "Load", JOptionPane.PLAIN_MESSAGE, null, saves.toArray(), saves.get(0)).toString();
                 if(filename!=null){
-                    setNewWorld(filename);
+                    fileManager.loadWorld(filename);
+                    setNewWorld();
                 }
+            }
+        });
+        rectangular.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.toggleWorld("Rectangular");
+                setNewWorld();
+            }
+        });
+        hexagonal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.toggleWorld("Hexagonal");
+                setNewWorld();
             }
         });
     }
 
-    private void setNewWorld(String filename){
-        fileManager.loadWorld(filename);
+    private void setNewWorld(){
         world = World.getWorld();
         countFieldSize(world.getHeight());
         this.getContentPane().remove(turnButton);
