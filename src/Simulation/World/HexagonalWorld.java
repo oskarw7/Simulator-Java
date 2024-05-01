@@ -2,7 +2,7 @@ package Simulation.World;
 
 public class HexagonalWorld extends World {
     public HexagonalWorld(int width, int height) {
-        super(width, height, "Hexagonal");
+        super(width, height, "Hexagonal", 6);
     }
 
     @Override
@@ -24,7 +24,6 @@ public class HexagonalWorld extends World {
         return coords;
     }
 
-    //private final int[][] moves = {{1,0}, {-1,0}, {-1,1}, {1,1}, {-1,-1}, {1,-1}};
     private final int[][] moves = {{1,0},{-1,0},{0,1},{0,-1}};
 
 }

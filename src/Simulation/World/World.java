@@ -10,7 +10,7 @@ import Utils.Randomiser;
 import Utils.EventListener;
 
 public abstract class World {
-    public World(int width, int height, String type){
+    public World(int width, int height, String type, int moveCount){
         this.width = width;
         this.height = height;
         this.currentType = type;
@@ -63,6 +63,10 @@ public abstract class World {
 
     public final String getType(){
         return currentType;
+    }
+
+    public int getMoveCount(){
+        return moveCount;
     }
 
     public abstract int getMove(int direction, int axis);
@@ -171,6 +175,7 @@ public abstract class World {
     protected static World world = null;
     protected int width;
     protected int height;
+    protected int moveCount;
 
     protected EventListener eventListener;
     protected Vector<Organism> organisms;
