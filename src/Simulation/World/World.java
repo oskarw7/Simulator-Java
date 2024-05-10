@@ -42,13 +42,19 @@ public abstract class World {
         world = w;
     }
 
+    public final void setCurrentType(String type){
+        this.currentType = type;
+    }
+
     public final void toggleWorld(String type){
         if(Objects.equals(type, "Rectangular")) {
             world = new RectangularWorld(width, height);
+            this.currentType = "Rectangular";
             world.generateWorld();
         }
         else if(Objects.equals(type, "Hexagonal")) {
             world = new HexagonalWorld(width, height);
+            this.currentType = "Hexagonal";
             world.generateWorld();
         }
     }
@@ -63,10 +69,6 @@ public abstract class World {
 
     public final String getType(){
         return currentType;
-    }
-
-    public int getMoveCount(){
-        return moveCount;
     }
 
     public abstract int getMove(int direction, int axis);
@@ -109,11 +111,10 @@ public abstract class World {
     }
 
     public final void newTurn(){
-        // clear events
         sortTurn();
 
         for(Organism o : organisms){
-            if(o instanceof Animal && o.getDescendant()) // sprawdzic czy nie potrzeba castowac
+            if(o instanceof Animal && o.getDescendant())
                o.setDescendant();
         }
 
@@ -175,7 +176,6 @@ public abstract class World {
     protected static World world = null;
     protected int width;
     protected int height;
-    protected int moveCount;
 
     protected EventListener eventListener;
     protected Vector<Organism> organisms;

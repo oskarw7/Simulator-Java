@@ -9,7 +9,3 @@ Hermetyzacja protected -> private w World
 Ładowanie heksagonalnej planszy z pliku
 
 Odkomentować Launcher
-
-Prawdopodobnie trzeba dodać argument Point jako obecna pozycja do metody move
-Niewykorzytywane w RectangularWorld, wykorzystane w HexagonalWorld
-Na podstawie podzielności obecnego rzędu przez 2 odpowiednie przesunięcie

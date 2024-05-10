@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import Simulation.Organisms.Abstract.Organism;
 import Simulation.Organisms.Animals.*;
 import Simulation.Organisms.Plants.*;
+import Simulation.World.HexagonalWorld;
 import Simulation.World.RectangularWorld;
 import Simulation.World.World;
 
@@ -69,8 +70,11 @@ public class FileManager {
                 world = World.getWorld();
             }
             else if(type.equals("Hexagonal")) {
-                world = null; //TODO: warunek dla heksagonalnego
+                world = new HexagonalWorld(width, height);
+                World.setWorld(world);
+                world = World.getWorld();
             }
+            world.setCurrentType(type);
             world.getEventListener().addInfo("World loaded from file " + filename);
             buffer = scanner.nextLine();
             splitted = buffer.split("\\.");

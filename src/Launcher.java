@@ -4,7 +4,6 @@ import App.App;
 
 public class Launcher {
     public static void main(String[] args) {
-        /* //DEBUG
         String widthString = JOptionPane.showInputDialog("Enter world width:");
         String heightString = JOptionPane.showInputDialog("Enter world height:");
         if(widthString == null || heightString == null)
@@ -18,7 +17,5 @@ public class Launcher {
             JOptionPane.showMessageDialog(null, "Invalid input", "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
-        */ //DEBUG
-        App app = new App(20, 20);
     }
 }

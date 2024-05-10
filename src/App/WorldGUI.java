@@ -73,13 +73,29 @@ public class WorldGUI extends JPanel implements KeyListener, MouseListener {
 
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
-                human.setDirection(0,-1);
+                if(Objects.equals(world.getType(), "Rectangular")) {
+                    human.setDirection(0, -1);
+                }
+                else{
+                    if(e.isShiftDown())
+                        human.setDirection(-1, -1);
+                    else
+                        human.setDirection(1, -1);
+                }
                 break;
             case KeyEvent.VK_DOWN:
-                human.setDirection(0, 1);
+                if(Objects.equals(world.getType(), "Rectangular")) {
+                    human.setDirection(0, 1);
+                }
+                else{
+                    if(e.isShiftDown())
+                        human.setDirection(-1, 1);
+                    else
+                        human.setDirection(1, 1);
+                }
                 break;
             case KeyEvent.VK_LEFT:
-                human.setDirection(-1,0);
+                human.setDirection(-1, 0);
                 break;
             case KeyEvent.VK_RIGHT:
                 human.setDirection(1,0);

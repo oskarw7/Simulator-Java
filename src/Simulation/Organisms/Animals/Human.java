@@ -1,6 +1,7 @@
 package Simulation.Organisms.Animals;
 
 import java.awt.Color;
+import java.util.Objects;
 
 import Simulation.Organisms.Abstract.Animal;
 import Simulation.Organisms.Abstract.Organism;
@@ -61,11 +62,41 @@ public class Human extends Animal {
     }
 
     public void setDirection(int x, int y){
-        this.direction.assign(x, y);
+        if(Objects.equals(world.getType(), "Rectangular")) {
+            this.direction.assign(x, y);
+        }
+        else {
+            if(x==-1 && y==-1){
+                if(this.getY()%2==0)
+                    this.direction.assign(-1, -1);
+                else
+                    this.direction.assign(0, -1);
+            }
+            else if(x==1 && y==-1){
+                if(this.getY()%2==0)
+                    this.direction.assign(0, -1);
+                else
+                    this.direction.assign(1, -1);
+            }
+            else if(x==-1 && y==1){
+                if(this.getY()%2==0)
+                    this.direction.assign(-1, 1);
+                else
+                    this.direction.assign(0, 1);
+            }
+            else if(x==1 && y==1){
+                if(this.getY()%2==0)
+                    this.direction.assign(0, 1);
+                else
+                    this.direction.assign(1, 1);
+            }
+            else
+                this.direction.assign(x, y);
+        }
     }
 
     public void setPower(int isActive, int timer){
-        this.isPowerActive = isActive!=0; // sprawdzic
+        this.isPowerActive = isActive!=0;
         this.timer = timer;
     }
 
