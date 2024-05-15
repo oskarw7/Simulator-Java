@@ -148,6 +148,13 @@ public abstract class World {
         });
     }
 
+    protected final void validateWorld(){
+        for(Organism o1 : organisms){
+            Organism o2 = getOrganism(o1.getX(), o1.getY());
+            if(o2!=null && o1!=o2)
+                o1.collision(o2);
+        }
+    }
     protected final void generateWorld(){
         this.human = new Human(Randomiser.randomInt(width), Randomiser.randomInt(height));
         addOrganism(human);
@@ -170,6 +177,7 @@ public abstract class World {
         addOrganism(new DeadlyNightshade(Randomiser.randomInt(width), Randomiser.randomInt(height)));
         addOrganism(new SosnowskysHogweed(Randomiser.randomInt(width), Randomiser.randomInt(height)));
 
+        validateWorld();
     }
 
 

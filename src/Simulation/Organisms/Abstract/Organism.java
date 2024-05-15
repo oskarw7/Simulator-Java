@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import Simulation.World.World;
 import Utils.Point;
+import Utils.Randomiser;
 
 public abstract class Organism {
     public Organism(int x, int y, int strength, int initiative, String name, Color color){
@@ -111,15 +112,28 @@ public abstract class Organism {
 
     public void setDescendant(){};
 
-    public void setStrength(int strength){
+    public final void setStrength(int strength){
         this.strength = strength;
     }
 
-    public void setPosition(Point p){
+    public final void setPosition(Point p){
         this.position.assign(p);
     }
 
     public abstract Organism descendant();
+
+    protected final boolean canBePlaced(Organism desc){
+        world.addOrganism(desc);
+
+        int direction = Randomiser.randomInt(4);
+        int iterations = 0;
+        while(!desc.moveOnEmpty(getX()+world.getMove(direction, 0), getY()+world.getMove(direction, 1)) && iterations<4){
+            direction++;
+            direction %= 4;
+            iterations++;
+        }
+        return iterations!=4;
+    }
 
     protected World world;
     protected Point position;

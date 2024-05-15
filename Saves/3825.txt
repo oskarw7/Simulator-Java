@@ -1,0 +1,19 @@
+20.20.Rectangular.
+Human is using Alzur's Shields.
+Wolf.10.18.9.7.
+Wolf.17.2.9.7.
+Human.15.7.5.7.1.4.
+Sheep.18.15.4.7.
+Sheep.5.10.4.7.
+Antelope.4.16.4.7.
+Antelope.8.2.4.7.
+Turtle.16.17.2.7.
+Grass.7.8.0.7.
+Grass.10.14.0.7.
+Sow Thistle.11.4.0.7.
+Sow Thistle.7.12.0.7.
+Guarana.7.9.0.7.
+Guarana.2.0.0.7.
+Deadly nightshade.4.4.99.7.
+Sosnowsky's Hogweed.10.11.10.7.
+Sow Thistle.11.5.0.6.

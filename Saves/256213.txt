@@ -1,0 +1,20 @@
+20.20.Rectangular.
+
+Human.15.4.5.0.0.0.
+Wolf.9.18.9.0.
+Wolf.18.0.9.0.
+Sheep.17.15.4.0.
+Sheep.3.9.4.0.
+Fox.2.12.3.0.
+Turtle.9.19.2.0.
+Turtle.16.17.2.0.
+Antelope.4.14.4.0.
+Antelope.8.3.4.0.
+Grass.7.8.0.0.
+Grass.10.14.0.0.
+Sow Thistle.11.4.0.0.
+Sow Thistle.7.12.0.0.
+Guarana.7.9.0.0.
+Guarana.2.0.0.0.
+Deadly nightshade.4.4.99.0.
+Sosnowsky's Hogweed.10.11.10.0.

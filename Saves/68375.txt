@@ -1,0 +1,24 @@
+50.50.Rectangular.
+Grass spreads on position (44,7).Sow Thistle spreads on position (25,2).
+Fox.13.29.3.15.
+Wolf.12.12.9.15.
+Wolf.7.19.9.15.
+Human.5.36.5.15.0.-5.
+Sheep.44.41.4.15.
+Sheep.41.26.4.15.
+Antelope.21.28.4.15.
+Antelope.6.28.4.15.
+Turtle.38.8.2.15.
+Turtle.13.31.2.15.
+Grass.44.8.0.15.
+Grass.31.22.0.15.
+Sow Thistle.26.2.0.15.
+Sow Thistle.35.34.0.15.
+Guarana.23.46.0.15.
+Guarana.39.49.0.15.
+Deadly nightshade.13.47.99.15.
+Sosnowsky's Hogweed.35.21.10.15.
+Guarana.24.46.0.2.
+Guarana.38.49.0.2.
+Grass.44.7.0.1.
+Sow Thistle.25.2.0.1.

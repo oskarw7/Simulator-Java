@@ -1,0 +1,20 @@
+15.15.Hexagonal.
+
+Fox.14.11.3.2.
+Wolf.1.8.9.2.
+Wolf.8.14.9.2.
+Human.7.7.5.2.0.-2.
+Sheep.5.0.4.2.
+Sheep.5.7.4.2.
+Antelope.8.11.4.2.
+Antelope.8.0.4.2.
+Turtle.7.13.2.2.
+Turtle.13.1.2.2.
+Grass.1.5.0.2.
+Grass.9.2.0.2.
+Sow Thistle.9.0.0.2.
+Sow Thistle.13.13.0.2.
+Guarana.2.10.0.2.
+Guarana.7.5.0.2.
+Deadly nightshade.9.10.99.2.
+Sosnowsky's Hogweed.14.14.10.2.

@@ -49,16 +49,8 @@ public abstract class Animal extends Organism{
         if(partner!=this && this.getAge()>=10 && partner.getAge()>=10){
             Organism desc = descendant();
             desc.setDescendant();
-            world.addOrganism(desc);
 
-            int direction = Randomiser.randomInt(4);
-            int iterations = 0;
-            while(!desc.moveOnEmpty(getX()+world.getMove(direction, 0), getY()+ world.getMove(direction, 1)) && iterations<4){
-                direction++;
-                direction %= 4;
-                iterations++;
-            }
-            if(iterations==4){
+            if(!canBePlaced(desc)){
                 world.getEventListener().addEvent(this, partner, "multiplication failed");
                 desc.kill();
             }

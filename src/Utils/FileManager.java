@@ -28,6 +28,7 @@ public class FileManager {
             if (file.createNewFile()) {
                 try {
                     FileWriter writer = new FileWriter(file);
+                    world = World.getWorld();
                     writer.write(world.stringify());
                     writer.close();
 

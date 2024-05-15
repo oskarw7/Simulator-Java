@@ -82,5 +82,5 @@ public class EventListener {
     }
 
     private ArrayList<String> events;
-    String info;
+    private String info;
 }
