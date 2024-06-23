@@ -1,0 +1,3 @@
+Simulator based on Conway's Game of Life in form of GUI application. Created world contains some animals and plants, each with different values of attributes and special skills. Plants can spread and animals can multiply if they are in collision if organisms of the same species. If different organisms are on the same field, they have to fight.
+The only organism, which can be moved by the user is human, which also has a special equipment - shield.
+The user can select size and type (rectangular or hexagonal) of newly created world, add any species at chosen field, save state of the world in any moment and load previosly saved ones.
